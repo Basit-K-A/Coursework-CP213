@@ -1,0 +1,295 @@
+"""
+-------------------------------------------------------
+testing.txt
+CP213 Documentation Lab Testing
+-------------------------------------------------------
+Author: basit khan	
+ID: 169058019     
+Email: khan8019@mylaurier.ca   
+Version: 10/27/2024
+-------------------------------------------------------
+SingleLink Data Structures Tests
+
+Tests are of the form:
+  Test Operation {expected object}: actual object
+  Contents: [contents from front to rear]
+
+================================================================================
+Testing SingleStack
+----------------------------------------
+SingleStack<Integer> source = new SingleStack<>();
+  isEmpty {true}: true
+----------------------------------------
+Push objects: [6, 41, 49, 13, 13, 45, 23]
+  push: 6
+  push: 41
+  push: 49
+  push: 13
+  push: 13
+  push: 45
+  push: 23
+  isEmpty {false}: false
+  peek {23}: 23
+  Contents: [23, 45, 13, 13, 49, 41, 6]
+----------------------------------------
+source.splitAlternate(left, right)
+source
+  isEmpty {true}: true
+  Contents: []
+left
+  isEmpty {false}: false
+  peek {6}: 6
+  Contents: [6, 49, 13, 23]
+right
+  isEmpty {false}: false
+  peek {41}: 41
+  Contents: [41, 13, 45]
+----------------------------------------
+target.combine(left, right)
+target
+  isEmpty {false}: false
+  peek {23}: 23
+  Contents: [23, 45, 13, 13, 49, 41, 6]
+left
+  isEmpty {true}: true
+  Contents: []
+right
+  isEmpty {true}: true
+  Contents: []
+----------------------------------------
+Clear target
+  Pop {23}: 23
+  Pop {45}: 45
+  Pop {13}: 13
+  Pop {13}: 13
+  Pop {49}: 49
+  Pop {41}: 41
+  Pop {6}: 6
+
+----------------------------------------
+Test Stack with strings
+test
+string
+123
+abc
+xyz
+================================================================================
+Testing SingleQueue
+----------------------------------------
+SingleQueue<Integer> source = new SingleQueue<>();
+  isEmpty {true}: true
+----------------------------------------
+Insert objects: [26, 49, 30, 29, 10, 32, 45]
+  insert: 26
+  insert: 49
+  insert: 30
+  insert: 29
+  insert: 10
+  insert: 32
+  insert: 45
+  isEmpty {false}: false
+  peek {26}: 26
+  Contents: [26, 49, 30, 29, 10, 32, 45]
+----------------------------------------
+source.splitAlternate(left, right)
+source
+  isEmpty {true}: true
+  Contents: []
+left
+  isEmpty {false}: false
+  peek {26}: 26
+  Contents: [26, 30, 10, 45]
+right
+  isEmpty {false}: false
+  peek {49}: 49
+  Contents: [49, 29, 32]
+----------------------------------------
+target.combine(left, right)
+target
+  isEmpty {false}: false
+  peek {26}: 26
+  Contents: [26, 49, 30, 29, 10, 32, 45]
+left
+  isEmpty {true}: true
+  Contents: []
+right
+  isEmpty {true}: true
+  Contents: []
+----------------------------------------
+Clear target
+  remove {26}: 26
+  remove {49}: 49
+  remove {30}: 30
+  remove {29}: 29
+  remove {10}: 10
+  remove {32}: 32
+  remove {45}: 45
+
+----------------------------------------
+Test Queue with strings
+xyz
+abc
+123
+string
+test
+================================================================================
+Testing SinglePriorityQueue
+----------------------------------------
+SinglePriorityQueue<Integer> source = new SinglePriorityQueue<>();
+  isEmpty {true}: true
+----------------------------------------
+Insert objects: [8, 8, 41, 7, 8, 44, 35]
+  insert: 8
+  insert: 8
+  insert: 41
+  insert: 7
+  insert: 8
+  insert: 44
+  insert: 35
+  isEmpty {false}: false
+  peek {7}: 7
+  Contents: [7, 8, 8, 8, 35, 41, 44]
+----------------------------------------
+source.splitByKey(8, left, right)
+source
+  isEmpty {true}: true
+  Contents: []
+left
+  isEmpty {false}: false
+  peek {7}: 7
+  Contents: [7]
+right
+  isEmpty {false}: false
+  peek {8}: 8
+  Contents: [8, 8, 8, 35, 41, 44]
+----------------------------------------
+target.combine(left, right)
+target
+  isEmpty {false}: false
+  peek {7}: 7
+  Contents: [7, 8, 8, 8, 35, 41, 44]
+left
+  isEmpty {true}: true
+  Contents: []
+right
+  isEmpty {true}: true
+  Contents: []
+----------------------------------------
+Clear target
+  remove {7}: 7
+  remove {8}: 8
+  remove {8}: 8
+  remove {8}: 8
+  remove {35}: 35
+  remove {41}: 41
+  remove {44}: 44
+
+----------------------------------------
+Test Priority Queue with strings
+123
+abc
+string
+test
+xyz
+================================================================================
+Testing SingleList
+----------------------------------------
+SingleList<Integer> source = new SingleList<>();
+  isEmpty {true}: true
+----------------------------------------
+Append objects: [16, 41]
+  append: 16
+  append: 41
+  isEmpty {false}: false
+  peek {16}: 16
+  Contents: [16, 41]
+----------------------------------------
+prepend: 20
+  isEmpty {false}: false
+  peek {20}: 20
+  Contents: [20, 16, 41]
+----------------------------------------
+Insert objects: [16, 41]
+  insert: (1, 49)
+  insert: (2, 41)
+  insert: (3, 32)
+  insert: (4, 6)
+  isEmpty {false}: false
+  peek {20}: 20
+  Contents: [20, 49, 41, 32, 6, 16, 41]
+----------------------------------------
+contains 999 {false}: false
+contains 32 {true}: true
+----------------------------------------
+find 999 {null}: 
+find 32 {32}: 32
+----------------------------------------
+get 3 {32}: 32
+----------------------------------------
+index 32 {3}: 3
+index 999 {-1}: 6
+----------------------------------------
+max {49}: 49
+min {6}: 6
+----------------------------------------
+Contents: [20, 49, 41, 32, 6, 16, 41]
+  count 999 {0}: 0
+Contents: [75, 75, 75, 75, 75, 75, 75]
+  count 75 {7}: 7
+----------------------------------------
+Contents: [75, 75, 75, 75, 75, 75, 75]
+  clean {[75]}: [75]
+----------------------------------------
+Contents: [75, 75, 75, 75, 75, 75, 75]
+  removeMany 999 {[75, 75, 75, 75, 75, 75, 75]}: [75, 75, 75, 75, 75, 75, 75]
+  removeMany 75 {[]}: []
+----------------------------------------
+Contents: [20, 49, 41, 32, 6, 16, 41]
+  removeFront {20}: 20
+----------------------------------------
+Contents: [49, 41, 32, 6, 16, 41]
+  remove 999 {null}: null
+  remove 41 {41}: 41
+Contents: [49, 32, 6, 16, 41]
+----------------------------------------
+Contents: [20, 49, 41, 32, 6, 16, 41]
+  reverse {[41, 16, 6, 32, 41, 49, 20]}: [20, 16, 6, 32, 41, 49, 41]
+----------------------------------------
+Contents: [20, 49, 41, 32, 6, 16, 41]
+  split {[20, 49, 41, 32], [6, 16, 41]}: [20, 49, 41, 32], [6, 16, 41]
+----------------------------------------
+Contents: [20, 49, 41, 32, 6, 16, 41]
+  splitAlternate {[20, 41, 6, 41], [49, 32, 16]}: [20, 41, 6, 41], [49, 32, 16]
+----------------------------------------
+Contents: [20, 41, 6, 41], [49, 32, 16]
+  combine {[20, 49, 41, 32, 6, 16, 41]}: [20, 49, 41, 32, 6, 16, 41]
+----------------------------------------
+Contents: [], []
+  identical {true}: true
+Contents: [20, 49, 41, 32, 6, 16, 41], [20, 49, 41, 32, 6, 16, 41]
+  identical {true}: true
+Contents: [20, 49, 41, 32, 6, 16, 41], [6, 16, 20, 32, 41, 41, 49]
+  identical {false}: false
+----------------------------------------
+Contents: [5, 0, 1, 2, 4, 6, 3], [4, 0, 6, 3, 5, 1, 2]
+  intersection {[5, 0, 1, 2, 4, 6, 3]}: [5, 0, 1, 2, 4, 6, 3]
+Contents: [5, 0, 1, 2, 4, 6, 3], [999]
+  intersection {[]}: []
+----------------------------------------
+Contents: [5, 0, 1], [2, 4, 6, 3]
+  union {[5, 0, 1, 2, 4, 6, 3]}: [5, 0, 1, 2, 4, 6, 3]
+----------------------------------------
+SingleList<Character> characters = new SingleList<>();
+  append: CP213
+  append: David
+  append: Laurier
+  append: covid
+  Contents: [CP213, David, Laurier, covid]
+
+----------------------------------------
+Test List with strings
+xyz
+abc
+123
+string
+test
